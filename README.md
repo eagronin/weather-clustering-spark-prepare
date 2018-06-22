@@ -1,9 +1,14 @@
 # Data Preparation
-This section explores, cleans and scales the data to prepare them for the cluster analysis that identifies different weather patterns for a weather station in San Diego, CA using k-means. 
+
+## Overview
+
+This section explores, cleans and scales the data to prepare them for a cluster analysis that identifies different weather patterns for a weather station in San Diego, CA using k-means. 
 
 The dataset is described and imported in the [previous section](https://eagronin.github.io/weather-clustering-spark-acquire/).
 
-The analysis is described in the [next section](https://eagronin.github.io/weather-clustering-spark-analyze/).
+The analysis is discussed in the [next section](https://eagronin.github.io/weather-clustering-spark-analyze/).
+
+## Data Exploration, Cleaning and Scaling
 
 The imported dataset includes over 1.5 million rows, as indicated by `df.count()`.  For the purpose of this analysis a smaller dataset was used that contains only one-tenth of the data.  The following code creates such a subset of data by keeping every 10th row in the subset and dropping all the other rows:
 
@@ -47,7 +52,7 @@ For rain accumulation the count is 157,812 days, while for rain duration the cou
 workingDF = filteredDF.drop('rain_accumulation').drop('rain_duration').drop('hpwren_timestamp').drop('rowID')
 ```
 
-Next, we drop rows with missing values and count how many rows were dropped:
+Next, we drop rows with missing values and count the number of rows that were dropped:
 
 ```python
 before = workingDF.count()
@@ -73,7 +78,7 @@ assembler = VectorAssembler(inputCols = featuresUsed, outputCol = 'features_unsc
 assembled = assembler.transform(workingDF)
 ```
 
-Finally, since the features are on different scales (e.g., air temperature ranges from 31.6 to 99.5, while air pressure ranges from 905.0 to 929.5), they need to be scaled. We will scale them using `StandardScaler()` so that each feature has the mean of 0 and the standard deviation of 1:
+Finally, since the features have different scales (e.g., air temperature ranges from 31.6 to 99.5, while air pressure ranges from 905.0 to 929.5), they need to be scaled. We scale them using `StandardScaler()` so that each feature has the mean of 0 and the standard deviation of 1:
 
 ```
 scaler = StandardScaler(inputCol = 'features_unscaled', outputCol = 'features', withStd = True, withMean = True)
