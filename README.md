@@ -8,6 +8,10 @@ The dataset is described and imported in the [previous section](https://eagronin
 
 The analysis is discussed in the [next section](https://eagronin.github.io/weather-clustering-spark-analyze/).
 
+This project is based on assignments from Machine Learning With Big Data by University of California San Diego on Coursera
+
+The analysis for this project was performed in Spark.
+
 ## Data Exploration, Cleaning and Scaling
 
 The imported dataset includes over 1.5 million rows, as indicated by `df.count()`.  For the purpose of this analysis a smaller dataset was used that contains only one-tenth of the data.  The following code creates such a subset of data by keeping every 10th row in the subset and dropping all the other rows:
