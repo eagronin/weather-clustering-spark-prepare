@@ -8,7 +8,7 @@ The dataset is described and imported in the [previous section](https://eagronin
 
 The analysis is discussed in the [next section](https://eagronin.github.io/weather-clustering-spark-analyze/).
 
-This project is based on assignments from Machine Learning With Big Data by University of California San Diego on Coursera
+This project is based on assignments from Machine Learning With Big Data by University of California San Diego on Coursera.
 
 The analysis for this project was performed in Spark.
 
