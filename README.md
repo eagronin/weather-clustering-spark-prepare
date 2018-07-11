@@ -65,7 +65,7 @@ after = workingDF.count()
 before - after
 ```
 
-The code above indicate that 46 rows in the `workingDF` dataframe had missing values in at least one feature, before these rows were dropped.  
+The code above indicates that 46 rows in the `workingDF` data frame had missing values in at least one feature, before these rows were dropped.  
 
 Next, we combine the remaining features into a single vector column. Let's create an array of the columns we want to combine, and use VectorAssembler to create the vector column:
 
